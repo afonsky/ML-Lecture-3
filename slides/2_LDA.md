@@ -137,7 +137,7 @@ $\delta_k (x | \mu_k, \sigma) := x \frac{\mu_k}{\sigma^2} - \frac{\mu_k^2}{2 \si
 
 * Here we have $X|_{Y = 1,2} \sim N (\mu_\gamma = \pm 1.25, \sigma^2 = 1)$
 * The classification uncertainty arises from the overlap in densities
-* Best dicision is to classify $x$ to the class $k$ with the **highest posterior density**, $p_k(x)$
+* Best decision is to classify $x$ to the class $k$ with the **highest posterior density**, $p_k(x)$
   * LDA boundary approximates (theoretical) **Bayes decision boundary**
 
 <br>
@@ -146,6 +146,56 @@ $\delta_k (x | \mu_k, \sigma) := x \frac{\mu_k}{\sigma^2} - \frac{\mu_k^2}{2 \si
   <figcaption style="color:#b3b3b3ff; font-size: 9px;">Image source:
     <a href="https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html">ISLP Fig. 4.4</a>
   </figcaption>
+</figure>
+
+---
+
+# Eg. Bayes Decision Boundary for Iris Data Set
+
+```python {all}{maxHeight:'200px'}
+import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+import matplotlib.pyplot as plt
+# Iris types: 0 = Setosa, 1 = Versicolour, 2 = Virginica
+# Features (in cm): sepal length/width, petal length/width
+X, y = load_iris(return_X_y=True)
+X, y = X[y!=2], y[y!=2] # drop Virginica iris
+X = X[:,[0,1]] # keep two features
+
+# We divide the dataset into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+ 
+# Training the Gaussian Naive Bayes model
+gnb = GaussianNB()
+gnb.fit(X_train, y_train)
+ 
+# Evaluation of model accuracy
+accuracy = gnb.score(X_test, y_test)
+print(f'Model accuracy: {accuracy:.2f}')
+ 
+# Let's create a meshgrid to visualize the decision boundary
+h = .02
+x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+ 
+# We predict the classes for each point in the meshgrid
+Z = gnb.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+ 
+# We visualize the points of the dataset and the decision boundary
+plt.contourf(xx, yy, Z, cmap=plt.cm.RdYlBu, alpha=0.3)
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.RdYlBu, edgecolors='k', marker='o')
+plt.title('Gaussian Naive Bayes - Decision Boundary')
+plt.xlabel('Sepal length, cm')
+plt.ylabel('Sepal width, cm')
+plt.show()
+```
+
+<figure>
+<img src="/ Iris_Bayesian_Decision_boundary.png" style="width: 455px !important;">
 </figure>
 
 ---
