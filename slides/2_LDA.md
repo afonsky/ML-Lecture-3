@@ -195,7 +195,7 @@ plt.show()
 ```
 
 <figure>
-<img src="/ Iris_Bayesian_Decision_boundary.png" style="width: 455px !important;">
+<img src="/Iris_Bayesian_Decision_boundary.png" style="width: 455px !important;">
 </figure>
 
 ---
