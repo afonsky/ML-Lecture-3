@@ -317,7 +317,7 @@ $\log \frac{p_k(X)}{p_{\neg k}(X)}: = \beta_{k0} + \beta_{k1}X = [1 X] \bf{\beta
 # Fitting Logistic Regression for 2 Classes
 
 * We assume i.i.d. $X_i \sim \mathrm{Binomial} \big(\theta_{2 \times 1} := (n, p)\big)$
-  * For $K > 2$, we assume i.i.d. $X_i \sim \mathrm{Multinomial} \big(\theta_1, ..., \theta_{K-1}$
+  * For $K > 2$, we assume i.i.d. $X_i \sim \mathrm{Multinomial} \big(\theta_1, ..., \theta_{K-1}\big)$
 * Then maximize log likelihood estimator (MLE) of $\theta$:
 $$\ell (\theta) = \log \mathrm{Bin}(\bf{X} | \theta) = \log \prod \mathrm{Bin} (X_i | \theta) = \sum \log \mathrm{Bin} (X_i | \theta)$$
 * In terms of $\beta := [\beta_0, \beta_1]$, we have:
