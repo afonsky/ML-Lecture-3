@@ -312,12 +312,22 @@ $\log \frac{p_k(X)}{p_{\neg k}(X)}: = \beta_{k0} + \beta_{k1}X = [1 X] \bf{\beta
   * Advantage: if you start with equal number of observations in each class (say, $n_k = 10$), then each logistic regression deals with **balanced classes**
     * In **one-versus-all**, we will have $10$ observations in class $k$ and $20$ obsevations in the rest
 
+<br>
+
+<center>
+<figure>
+  <img src="/one_vs_all.png" style="width: 350px !important">
+  <figcaption style="color:#b3b3b3ff; font-size: 9px; position: relative; left:0px;">Image source: <a href="https://sites.cc.gatech.edu/classes/AY2016/cs4476_fall/results/proj4/html/jnanda3/index.html">https://sites.cc.gatech.edu/classes/AY2016/cs4476_fall/results/proj4/html/jnanda3/index.html</a>
+  </figcaption>
+</figure>
+</center>
+
 ---
 
 # Fitting Logistic Regression for 2 Classes
 
 * We assume i.i.d. $X_i \sim \mathrm{Binomial} \big(\theta_{2 \times 1} := (n, p)\big)$
-  * For $K > 2$, we assume i.i.d. $X_i \sim \mathrm{Multinomial} \big(\theta_1, ..., \theta_{K-1}\big)$
+  * For $K > 2$, we assume i.i.d. $X_i \sim \mathrm{Multinomial} \big(\theta_1, ..., \theta_{K-1}$
 * Then maximize log likelihood estimator (MLE) of $\theta$:
 $$\ell (\theta) = \log \mathrm{Bin}(\bf{X} | \theta) = \log \prod \mathrm{Bin} (X_i | \theta) = \sum \log \mathrm{Bin} (X_i | \theta)$$
 * In terms of $\beta := [\beta_0, \beta_1]$, we have:

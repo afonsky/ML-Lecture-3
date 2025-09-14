@@ -1,12 +1,5 @@
 # Examples of Classification
 
-<v-clicks>
-
-1. A patient is admitted to the emergency department with a set of symptoms that can be categorized as one of three medical conditions. Which of these diseases does the person actually have?
-2. You receive a message in the TG. A classifier bot, determines if you need it or if it is spam.
-3. The recommender suggests you read a machine learning textbook depending on the list of textbooks you have already read.
-
-</v-clicks>
 
 ---
 
@@ -72,6 +65,36 @@
   <figcaption style="color:#b3b3b3ff; font-size: 9px; position: relative; left: 350px;">Image source: <a href="https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html">https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html</a>
   </figcaption>
 </figure>
+
+---
+
+# Note 1: Linear Separability
+
+<br>
+<br>
+
+<center>
+<figure>
+  <img src="/02_03.png" style="width: 700px !important">
+  <figcaption style="color:#b3b3b3ff; font-size: 9px; position: relative; left: 350px;">Image source: <a href="https://github.com/rasbt/machine-learning-book">https://github.com/rasbt/machine-learning-book/</a>
+  </figcaption>
+</figure>
+</center>
+
+---
+
+# Note 2: Under/Overfitting in Classification
+
+<br>
+<br>
+
+<center>
+<figure>
+  <img src="/03_07.png" style="width: 700px !important">
+  <figcaption style="color:#b3b3b3ff; font-size: 9px; position: relative; left: 350px;">Image source: <a href="https://github.com/rasbt/machine-learning-book">https://github.com/rasbt/machine-learning-book/</a>
+  </figcaption>
+</figure>
+</center>
 
 ---
 
