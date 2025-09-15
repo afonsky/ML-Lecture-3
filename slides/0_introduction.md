@@ -1,5 +1,22 @@
-# Examples of Classification
+---
+zoom: 0.9
+---
 
+# Changes in ML Course
+
+* Hackathon
+    * In addition to the 15% (7.5% for ICEF) weight assigned to the grading formula, successfully completing the hackathon gives you the following bonuses:
+        * 🥇place: you will receive 10 points for any two <span v-mark="{ at: 1, color: 'yellow', type: 'highlight' }">categories of</span> control elements by choice (except midterm and exam)
+        * 🥈and 🥉places: you will receive 10 points for one <span v-mark="{ at: 2, color: 'yellow', type: 'highlight' }">category of</span> control element by choice (except midterm and exam)
+        * Trophy prizes or merch are also expected
+* Quizzes
+    * The results of two (of 12) worst in-seminar quizzes will be discarded
+    * Retakes of missing quizzes are available for valid reason
+        * Once in December
+    
+---
+
+# Examples of Classification
 
 ---
 
