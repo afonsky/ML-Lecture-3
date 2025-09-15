@@ -1,5 +1,5 @@
 ---
-zoom: 0.9
+zoom: 0.85
 ---
 
 # Changes in ML Course
@@ -13,6 +13,8 @@ zoom: 0.9
     * The results of two (of 12) worst in-seminar quizzes will be discarded
     * Retakes of missing quizzes are available for valid reason
         * Once in December
+* Midterm and final tests
+   * Missing for valid reason - retake in December
     
 ---
 
