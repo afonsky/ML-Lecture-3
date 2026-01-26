@@ -162,8 +162,13 @@ $\delta_k (x | \mu_k, \sigma) := x \frac{\mu_k}{\sigma^2} - \frac{\mu_k^2}{2 \si
 * Eg 3. However, $X|Y = k \sim \mathrm{Uniform}[k - 1, k + 1]$, $k = 1,2$ have overlapping supports
 
 ---
+zoom: 0.95
+---
 
 # Estimating Parameters in Discriminant Function, $\delta_k$
+
+<v-clicks depth="3">
+
 * Assume $\sigma = \sigma_k, \forall k$
 * Then we need to estimate $2K + 1$ params and plug them into $\delta_k$ to derive
 $$\hat{\delta}_k(x) := x \cdot 
@@ -173,6 +178,8 @@ $$\hat{\delta}_k(x) := x \cdot
 \color{#006} =
 c_0 + c_1 x
 $$
+</v-clicks>
+<v-clicks depth="3">
 
 * $\hat{\delta}_k(x)$ is a linear function of $x$ (i.e. linear in $x$)
 * Parameters to estimate: $\mu_1, ..., \mu_k, \pi_1, ..., \pi_k, \sigma$
@@ -181,6 +188,7 @@ $$
 * $n := \sum_k n_k$
 * $n_k$ - number of observations in class $k$
 * $\hat\pi_k := \frac{n_k}{n}$, a prior probability of class $k$
+</v-clicks>
 
 ---
 

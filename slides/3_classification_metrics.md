@@ -221,6 +221,8 @@ layout: center
 </div>
 
 ---
+zoom: 0.95
+---
 
 # ROC Curve
 
@@ -234,12 +236,15 @@ layout: center
 </div>
 <div>
 
+<v-clicks depth="2">
+
 * All thresholds are used to generate ROC
 * Useful for comparing different models without focusing on any threshold
 * Area Under Curve (AUC) summarized the ROC into a single value
   * Model comparison can be automated
 * $\mathrm{AUC} \in [0, 1]$ with max value when ROC "hugs" top left corner
 * If ROC follows "no information" line then predictors are unrelated to probability of interest
+</v-clicks>
 </div>
 </div>
 
@@ -247,13 +252,19 @@ layout: center
 
 ---
 
-# Precision-Recall Curve
+# Precision-Recall (PR) Curve
 
+<center>
   <figure>
-    <img src="/Precision_Recall_curve.png" style="width: 500px !important">
+    <img src="/Precision_Recall_curve.png" style="width: 400px !important">
   </figure>
+</center>
+<br>
 
-#### The Precision-Recall curve shows the trade-off between Precision and Recall for different thresholds. A large area under the curve indicates both a high Precision value (low false positive rate) and a high Recall value (low false negative rate)
+* The PR curve shows the trade-off between Precision and Recall for different thresholds
+* A large area under the curve indicates both:
+  * High Precision value (low false positive rate)
+  * High Recall value (low false negative rate)
 
 ---
 
@@ -286,8 +297,12 @@ layout: center
 </div>
 
 ---
+zoom: 0.95
+---
 
 # Specificity & Sensitivity (Recall). Eg. Default Dataset
+
+<v-clicks depth="3">
 
 * **Specificity** or $\%$ of correctly identified true negatives
   * Out of $9667$ actual <span style="color:#B85450">non-defaults</span> $9644$ were correctly predicted, $99.8\%$
@@ -298,7 +313,9 @@ layout: center
   * <span style="color:#82B366">Defaulters</span> are costlier than <span style="color:#B85450">non-defaulters</span>
   * Bank may want to identify more <span style="color:#82B366">defaulters</span> at a cost of misclassifying <span style="color:#B85450">non-defaulters</span>
 * So, we can lower the **threshold** of identifying positives
+</v-clicks>
 
+<div v-click at="10">
 <div class="grid grid-cols-[5fr_4fr]">
 <div>
 
@@ -315,6 +332,7 @@ layout: center
     <a href="https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html">ISLP Table. 4.4</a>
   </figcaption>
 </figure>
+</div>
 </div>
 </div>
 
