@@ -14,18 +14,25 @@ layout: center
   * We compute $p(\mathrm{balance}) := \mathbb{P}[\mathrm{default = Yes | balance}]$
 * Linear regression cannot be interpreted as a probability
 
+<center>
 <figure>
   <img src="/ISLP/ISLP_figure_4.2.png" style="width: 585px !important;">
   <figcaption style="color:#b3b3b3ff; font-size: 9px;">Image source:
     <a href="https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html#page=146">ISLP Fig. 4.2</a>
   </figcaption>
 </figure>
+</center>
 
+---
+zoom: 0.95
 ---
 
 # Response Variable’s Encodings
 
+<v-clicks depth="3" every="1">
+
 * Some models can't use `Cat` and `Dog` levels & require numeric encodings. Why?
+  * Mathematical operations require numbers; strings cannot be multiplied by coefficients
 * **Binary** response:
   * We can encode `{Cat, Dog}` with **dummy variables** as $\{0, 1\}$ or $\{1, 0\}$
     * The model fit and predictions do not change, but we predict the probability of class $1$
@@ -33,10 +40,11 @@ layout: center
   * **One-hot** vectors (or dummy variables) avoid imposing order or metric on $Y$
     * `{Cat, Dog, Rat}` can be encoded as $\{[0,0], [0,1], [1,0]\}$ or similar combination
     * This does not imply any distance or ordering between levels
-  * **Numeric** encodings are better suited for ordinal variables (but this imposes metric)
+  * **Ordinal** encodings are better suited for ordinal variables (but this imposes metric)
     * `{Cold, Cool, Warm, Hot}` can be encoded with $\{0,1,2,3\}$
-      * This tells the model to treat distances between levels as `Hot - Warm` ~ `Warm - Cool` ...
-      * However, it may not always hold
+      * This tells the model to treat distances between levels as `Hot - Warm` ≈ `Warm - Cool` ...
+      * However, equal spacing may not always hold in practice
+</v-clicks>
 
 ---
 
@@ -65,6 +73,7 @@ layout: center
 
 <div class="grid grid-cols-[6fr_3fr] gap-10">
 <div>
+<v-clicks depth="3" every="1">
 
 * Sigmoid (logistic) function: $f(x) := \frac{1}{1 + e^{-x}}$
   * Differentiable on $\R$ (just compute a derivative)<br> $\implies$ continuous on $\R$
@@ -74,8 +83,10 @@ layout: center
     * $f'(x)|_0=f(x)(1-f(x))|_0=\frac{1}{2}\cdot (1-\frac{1}{2})=\frac{1}{4}$ is a rate of change of $f$ at zero
     * $f''(x)|_0=f(x)(1-f(x))(1-2f(x))|_0=$<br>$\frac{1}{4}\cdot 0=0$ is a rate of change of derivative at zero
 
+</v-clicks>
 </div>
 <div>
+<v-click at="1">
 <v-plotly style="width: 300px !important; height: 400px !important"
 :data="[
 {
@@ -107,10 +118,13 @@ legend: {x:0.1, y: 0.9}
 }"
 :config="{displayModeBar: true}"
 :options="{}"/>
+</v-click>
 </div>
 </div>
+<v-click at="8">
 
 * Sigmoid is a [CDF](https://en.wikipedia.org/wiki/Cumulative_distribution_function) with the corresponding bell-shaped derivative, i.e. [PDF](https://en.wikipedia.org/wiki/Probability_density_function)
+</v-click>
 
 ---
 
@@ -226,14 +240,14 @@ tmp = ax.set_title('Boxplot for Sepal width');
 clf = LogisticRegression(random_state=1, penalty='none', fit_intercept=True) 
 clf.fit(X, y)  # fit coefficients to training observations (gradient descent business)
 betas = np.array(list(clf.intercept_) + list(clf.coef_[0]))
-Odds = clf.intercept_ + vX * clf.coef_[0]
-LogOdds = np.exp(Odds)
-pX = LogOdds/(1+LogOdds)
+LogOdds = clf.intercept_ + vX * clf.coef_[0]  # linear combination = log-odds
+Odds = np.exp(LogOdds)  # exp of log-odds = odds
+pX = Odds/(1+Odds)  # convert odds to probability
 alpha=0.5
 
 print(f'Observations to classify: {vX}') 
 print(f'Model coefficients: {betas.round(3)}')
-print(f'Odds: {Odds[0]}, Log-odds: {LogOdds[0]}')
+print(f'Log-odds: {LogOdds[0]}, Odds: {Odds[0]}')
 print(f'Class probabilities: \n P[Y=0|X]={1-pX[0].round(3)} \n P[Y=1|X]={pX[0].round(3)}')
 print(f'Predicted class: {1 if pX > alpha else 0}')
 
@@ -244,8 +258,8 @@ LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True, \
 
 Observation to classify, X: [[5.]]
 Model coefficients: [-27.831 5.14 ]
-Odds: [-2.1297569]
-Log-odds: [0.11886619]
+Log-odds: [-2.1297569]
+Odds: [0.11886619]
 Class probabilities:
   P[Y=0|X]=[0.894]
   P[Y=1|X]=[0.106]
@@ -264,12 +278,17 @@ Predicted classes (with thresholded probabilities): [0]
 
 # Multiple Logistic Regression
 
+<v-click at="1">
+
 * An extension to simple linear regression with log-odds:
 $$\log\bigg(\frac{p(\bf{X})}{1-p(\bf{X})}\bigg) = \beta_0 + \beta_1 X_1 + ... + \beta_p X_p$$
+</v-click>
+
+<v-click at="2">
 
 * Probability of class 1 (positive) given $\bf{X} := X_{1:p}$:
 $$p(\bf{X}) = \frac{\exp[\beta_0 + \beta_1 X_1 + ... + \beta_p X_p]}{1 + \exp[\beta_0 + \beta_1 X_1 + ... + \beta_p X_p]}$$
-
+</v-click>
 
 ---
 
@@ -281,12 +300,14 @@ $$p(\bf{X}) = \frac{\exp[\beta_0 + \beta_1 X_1 + ... + \beta_p X_p]}{1 + \exp[\b
 <br>
 <br>
 
+<center>
 <figure>
   <img src="/ISLP/ISLP_figure_4.3.png" style="width: 585px !important;">
   <figcaption style="color:#b3b3b3ff; font-size: 9px;">Image source:
     <a href="https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html">ISLP Fig. 4.3</a>
   </figcaption>
 </figure>
+</center>
 
 ---
 
@@ -301,7 +322,7 @@ $\log \frac{p_k(X)}{p_{\neg k}(X)}: = \beta_{k0} + \beta_{k1}X = [1 X] \bf{\beta
     * $X \rightarrow X^{\prime}\beta_{\mathrm{cat}}, X \rightarrow X^{\prime}\beta_{\mathrm{dog}}, X \rightarrow X^{\prime}\beta_{\mathrm{rat}}$
 * **Multinomial logistic regression** (a.k.a. softmax regression) with **multilogit** function:
   * It uses a generalized logistic function, called **softmax**:  $p_k(\bf{X}) := \frac{e^{\bf{X}^\prime \beta_k}}{\sum\limits_j e^{\bf{X}^\prime \beta_j}}$
-    * So, if $p_{\mathrm{cat}}(\bf{X}) = 0.2$, $p_{\mathrm{dog}}(\bf{X}) = 0.3$, then: $p_{\mathrm{cat}}(\bf{X}) = 1 - p_{\mathrm{cat}}(\bf{X}) - p_{\mathrm{dog}}(\bf{X}) = 0.5$
+    * So, if $p_{\mathrm{cat}}(\bf{X}) = 0.2$, $p_{\mathrm{dog}}(\bf{X}) = 0.3$, then: $p_{\mathrm{rat}}(\bf{X}) = 1 - p_{\mathrm{cat}}(\bf{X}) - p_{\mathrm{dog}}(\bf{X}) = 0.5$
 
 ---
 
@@ -310,7 +331,7 @@ $\log \frac{p_k(X)}{p_{\neg k}(X)}: = \beta_{k0} + \beta_{k1}X = [1 X] \bf{\beta
 * We can also apply logistic regression for any pairs of $K$ response levels
   * This yields $\frac{K(K-1)}{2}$ pairs of inputs
   * Advantage: if you start with equal number of observations in each class (say, $n_k = 10$), then each logistic regression deals with **balanced classes**
-    * In **one-versus-all**, we will have $10$ observations in class $k$ and $20$ obsevations in the rest
+    * In **one-versus-all**, we will have $10$ observations in class $k$ and $20$ observations in the rest
 
 <br>
 

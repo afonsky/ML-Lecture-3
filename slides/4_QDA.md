@@ -1,11 +1,11 @@
 ---
 layout: center
 ---
-# Quadratic Discrimintant Analysis
+# Quadratic Discriminant Analysis
 
 ---
 
-#  Quadratic Discrimintant Analysis (QDA)
+#  Quadratic Discriminant Analysis (QDA)
 
 * LDA assumes $X |_Y \sim N (\mu_Y, \Sigma)$
 * QDA assumes $X |_Y \sim N (\mu_Y, \Sigma_{\color{red}Y}\color{#006})$, where $\Sigma_Y \in \R^{p\times p}$ matrix, $Y = 1:K$
@@ -58,7 +58,7 @@ $
 * Both have log odds as linear functions of $x$
 * LDA for $k = 2$: $~\log \big( \frac{p_1(x)}{p_2(x)}\big) = c_0 + c_1 x$
   * $c_i$ are estimated MLEs of parameter of Gaussian PDF of $X|Y$
-* Logistic regression for $k = 2$: $~\log \big( \frac{p_1(x)}{p_2(x)}\big) = \beta_0 + beta_1 x$
+* Logistic regression for $k = 2$: $~\log \big( \frac{p_1(x)}{p_2(x)}\big) = \beta_0 + \beta_1 x$
   * $\beta_i$ are estimated via MLE of regression parameters
 * If Gaussian assumption is correct, LDA outperforms
 
@@ -73,3 +73,22 @@ $
   * No assumptions about the shape of the decision boundary
     * KNN outperforms with non-linear Bayes decision boundary
   * Cannot identify important variables
+
+---
+
+# Summary: Choosing a Classification Method
+
+| Method | Decision Boundary | Best When | Limitations |
+|--------|------------------|-----------|-------------|
+| **Logistic Regression** | Linear | Classes are linearly separable | Cannot capture non-linear patterns |
+| **LDA** | Linear | Gaussian features, shared covariance | Same as logistic, + Gaussian assumption |
+| **QDA** | Quadratic | Gaussian features, different covariances | Many parameters, needs more data |
+| **KNN** | Non-linear | Complex boundaries, enough data | No feature importance, slow prediction |
+
+<br>
+
+<v-click>
+
+**Rule of thumb**: Start simple (logistic/LDA), increase complexity if needed (QDA/KNN)
+
+</v-click>

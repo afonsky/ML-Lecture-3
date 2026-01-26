@@ -5,6 +5,23 @@ layout: center
 
 ---
 
+# Why Not Just Use Accuracy?
+
+* **Accuracy** = (Correct predictions) / (Total predictions)
+* Problem: Accuracy can be misleading for **imbalanced datasets**!
+
+<v-clicks>
+
+* **Example**: Disease detection with 1% positive cases
+  * A "classifier" that always predicts "No disease" achieves 99% accuracy!
+  * But it's completely useless for detecting the disease
+* **Solution**: We need metrics that capture class-specific performance
+  * Confusion matrix, Precision, Recall, F1-score, ROC-AUC
+
+</v-clicks>
+
+---
+
 # Confusion Matrix
 
 #### Consider 4 class classification problem:
@@ -313,9 +330,11 @@ layout: center
 * Lower threshold "flags" more <span style="color:#82B366">defaulters</span> (lower FNR) and <span style="color:#B85450">non-defaulters</span> (higher FPR)
 
 <br>
+<center>
 <figure>
   <img src="/ISLP/ISLP_figure_4.7.png" style="width: 455px !important;">
   <figcaption style="color:#b3b3b3ff; font-size: 9px; position: relative; left: 400px;">Image source:
     <a href="https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html">ISLP Fig. 4.7</a>
   </figcaption>
 </figure>
+</center>

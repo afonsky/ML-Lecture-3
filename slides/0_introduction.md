@@ -66,12 +66,13 @@ const timelineSource = `
   * These are **classes**, **categories**, **levels**, **factors**
   * The appropriate models in supervised-learning are **classifiers**
 * Examples of classifiers:
-  * **Logistic regression**
-  * **Linear Discriminant Analysis** (LDA)
+  * **Logistic regression** ← Today's lecture
+  * **Linear Discriminant Analysis** (LDA) ← Today's lecture
+  * **Quadratic Discriminant Analysis** (QDA) ← Today's lecture
   * Suitable for both regression and classification:
-    * **Classification And Regression Tree** (CART)
-    * **K-Nearest Neighbor** (KNN)
-    * **Support Vector Machine** (SVM) and **Classifier** (SVC)
+    * **Classification And Regression Tree** (CART) ← Future lectures
+    * **K-Nearest Neighbor** (KNN) ← Future lectures
+    * **Support Vector Machine** (SVM) and **Classifier** (SVC) ← Future lectures
 </v-clicks>
 
 ---
@@ -127,13 +128,15 @@ const timelineSource = `
   * **Features**: Income, Balance (owed to credit card issuer), Student (Yes/No)
   * **Response levels**: <span style="color:#5EA4D7">**default**</span>, <span style="color:#CA6320">**non-default**</span>
 
-<br>  
+<br>
+<center>
 <figure>
   <img src="/ISLP/ISLP_figure_4.1.png" style="width: 585px !important;">
   <figcaption style="color:#b3b3b3ff; font-size: 9px;">Image source:
     <a href="https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html#page=146">ISLP Fig. 4.1</a>
   </figcaption>
 </figure>
+</center>
 
 <!--
 * Do you see associacions in Y vs Balance, Y vs Income?

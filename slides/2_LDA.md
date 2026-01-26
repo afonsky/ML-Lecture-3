@@ -9,7 +9,7 @@ layout: center
 <div class="grid grid-cols-[2fr_1fr]">
 <div>
 
-* 250 years old formula
+* 250+ years old formula (published posthumously in 1763)
 
 $$
 \color{grey}\underbrace{\color{#006} f(\theta | x)}_{\mathrm{posterior}} \color{#006} =
@@ -141,12 +141,14 @@ $\delta_k (x | \mu_k, \sigma) := x \frac{\mu_k}{\sigma^2} - \frac{\mu_k^2}{2 \si
   * LDA boundary approximates (theoretical) **Bayes decision boundary**
 
 <br>
+<center>
 <figure>
   <img src="/ISLP/ISLP_figure_4.4.png" style="width: 655px !important;">
   <figcaption style="color:#b3b3b3ff; font-size: 9px;">Image source:
     <a href="https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html">ISLP Fig. 4.4</a>
   </figcaption>
 </figure>
+</center>
 
 ---
 
@@ -220,15 +222,36 @@ $\begin{bmatrix} X_1 \\ \vdots \\  X_p \end{bmatrix} |_Y \sim N_p \Bigg( \mu_Y :
 * The Bayes decision boundaries are $\{x | \delta_k(x) = \delta_\ell(x), k \neq \ell \}$
 * LDA has linear decision boundaries and expresses $\delta_k(x)$ as a linear function of $x$
 
+<center>
 <figure>
   <img src="/ISLP/ISLP_figure_4.6.png" style="width: 620px !important;">
   <figcaption style="color:#b3b3b3ff; font-size: 9px;">Image source:
     <a href="https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html">ISLP Fig. 4.6</a>
   </figcaption>
 </figure>
+</center>
 
 ---
 
 # Classification Methods Demo
 
 [Demo of different classification methods](http://www.ccom.ucsd.edu/~cdeotte/programs/classify.html)
+
+---
+
+# LDA: Key Takeaways
+
+<v-clicks>
+
+* **LDA** is a Bayesian classifier that models $P(X|Y=k)$ as Gaussian
+* Assumes **shared covariance** $\Sigma$ across all classes
+  * This leads to **linear decision boundaries**
+* Uses **Bayes' theorem** to compute posterior probabilities:
+  * $P(Y=k|X) \propto P(Y=k) \cdot P(X|Y=k) = \pi_k \cdot f_k(X)$
+* Classification: assign $x$ to class $k$ with highest discriminant $\delta_k(x)$
+* **When to use LDA**:
+  * Classes are approximately Gaussian with similar covariances
+  * You have relatively few observations (lower variance than QDA)
+  * You need interpretable linear decision boundaries
+
+</v-clicks>
