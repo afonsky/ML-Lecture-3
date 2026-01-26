@@ -199,7 +199,7 @@ $\begin{bmatrix} X_1 \\ \vdots \\  X_p \end{bmatrix} |_Y \sim N_p \Bigg( \mu_Y :
   * $c := (2\pi)^{-\frac{p}{2}} \lvert \Sigma \rvert^{-\frac{1}{2}}, \lvert \Sigma \rvert$ determinant
   * $f_k(x) := c \cdot \exp[-\frac{1}{2} \tilde{x}^T \Sigma^{-1}\tilde{x}]$
   * $\delta_k(x) := x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k \Sigma^{-1} \mu_k + \log \pi_k$
-* We classify x as $\argmax\limits_{\forall k} \delta_k(x)$
+* We classify $x$ as $\argmax\limits_{\forall k} \delta_k(x)$
 
 </div>
 <div>
