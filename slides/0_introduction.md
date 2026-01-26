@@ -2,24 +2,28 @@
 zoom: 0.85
 ---
 
-# Changes in ML Course
+# Current Homework Assignments
 
-* Hackathon
-    * In addition to the 15% (7.5% for ICEF) weight assigned to the grading formula, successfully completing the hackathon gives you the following bonuses:
-        * 🥇place: you will receive 10 points for any two <span v-mark="{ at: 1, color: 'yellow', type: 'highlight' }">categories of</span> control elements by choice (except midterm and exam)
-        * 🥈and 🥉places: you will receive 10 points for one <span v-mark="{ at: 2, color: 'yellow', type: 'highlight' }">category of</span> control element by choice (except midterm and exam)
-        * Trophy prizes or merch are also expected
-* Quizzes
-    * The results of two (of 12) worst in-seminar quizzes will be discarded
-    * Retakes of missing quizzes are available for valid reason
-        * Once in December
-* Midterm and final tests
-   * Missing for valid reason - retake in December
+<script setup>
+const timelineSource = `
+@ [2026-01-19~2026-02-01T18:00] #green {🏆Your first Kaggle Competition} 💎Diamonds-26
+* [2026-01-27T23:59] #green {🏆Your first Kaggle Competition} Interim deadline (Soft)
+* [2026-01-28T18:00] #green {🏆Your first Kaggle Competition} Interim deadline (Hard)
+* [2026-01-31T23:59] #green {🏆Your first Kaggle Competition} Final deadline (Soft)
+* [2026-02-01T18:00] #green {🏆Your first Kaggle Competition} Final deadline (Hard)
+
+@ [2026-01-27~2026-02-04T18:00] #red {🤖STACK+Maxima Tutorial} 🤖STACK+Maxima Tutorial
+* [2026-02-03T23:59] #yellow {🤖STACK+Maxima Tutorial} Soft deadline
+* [2026-02-04T18:00] #red {🤖STACK+Maxima Tutorial} Hard deadline
+
+@ [2026-01-27~2026-02-04T18:00] {HW2 (theory)} Linear Models
+* [2026-02-03T23:59] #yellow {HW2 (theory)} Soft deadline
+* [2026-02-04T18:00] #red {HW2 (theory)} Hard deadline
+`
+</script>
+
+<ChronosTimeline :source="timelineSource" />
     
----
-
-# Examples of Classification
-
 ---
 
 # Map of Estimators (models) in Sklearn
