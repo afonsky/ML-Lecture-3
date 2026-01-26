@@ -15,10 +15,6 @@ const timelineSource = `
 @ [2026-01-27~2026-02-04T18:00] #red {🤖STACK+Maxima Tutorial} 🤖STACK+Maxima Tutorial
 * [2026-02-03T23:59] #yellow {🤖STACK+Maxima Tutorial} Soft deadline
 * [2026-02-04T18:00] #red {🤖STACK+Maxima Tutorial} Hard deadline
-
-@ [2026-01-27~2026-02-04T18:00] {HW2 (theory)} Linear Models
-* [2026-02-03T23:59] #yellow {HW2 (theory)} Soft deadline
-* [2026-02-04T18:00] #red {HW2 (theory)} Hard deadline
 `
 </script>
 
