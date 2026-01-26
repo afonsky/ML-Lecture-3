@@ -6,7 +6,7 @@ layout: center
 ---
 
 # Bayes Theorem
-<div class="grid grid-cols-[2fr_1fr]">
+<div class="grid grid-cols-[2fr_1fr] gap-10">
 <div>
 
 * 250+ years old formula (published posthumously in 1763)
@@ -23,12 +23,13 @@ where the marginal density is a constant w.r.t. $\theta$
 </div>
 <div>
 <figure>
-  <img src="/Thomas_Bayes.gif" style="width: 135px !important">
+  <img src="/Thomas_Bayes.gif" style="width: 155px !important">
   <figcaption style="color:#b3b3b3ff; font-size: 11px">Thomas Bayes (1702—1761)
   </figcaption>
 </figure>
 </div>
 </div>
+<v-clicks depth="3">
 
 * **Goal**: infer the posterior distribution of $\theta | x$ from the assumed prior $f$ and the likelihood $f_\theta$
   * It combines **prior** knowledge about $\theta$ with the current  **evidence** (data) to improve the posterior
@@ -36,6 +37,7 @@ where the marginal density is a constant w.r.t. $\theta$
 * If we know the density $f(\theta) \cdot f_\theta(x)$, which must integrate to $1$, then:
   * The constant of integration, $f(x)$, can be determined numerically
   * Likewise, we can drop all constants (w.r.t. $\theta$) in the likelihood and prior to simplify the expression
+</v-clicks>
 
 ---
 
@@ -69,8 +71,11 @@ $$
 </div>
 
 ---
+zoom: 0.95
+---
 
 # Estimation of Posterior Distribution
+<v-clicks depth="3">
 
 * Goal: model **conditional distribution**, $Y | X$:<br>
 $p_k(X) := \mathbb{P} [Y = k | X]$
@@ -87,9 +92,9 @@ $$
 = \frac{\pi_k \cdot f_k(X)}{\sum\limits_i \pi_i f_i(X)}
 $$
 * we estimate the class-specific distribution of $X$, $f_k(X)$
-
 * Now, we have to estimate $\pi_k$, $f_k(X)$ for each class $k = 1:K$
   * $\pi_k$ is a **function of response value counts**, not the constant $\pi \approx 3.14159$
+</v-clicks>
 
 ---
 

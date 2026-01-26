@@ -313,6 +313,8 @@ $$p(\bf{X}) = \frac{\exp[\beta_0 + \beta_1 X_1 + ... + \beta_p X_p]}{1 + \exp[\b
 
 # Logistic Regression for >2 Response Classes
 
+<v-clicks depth="3">
+
 * Consider $Y \in \{\mathrm{cat, dog, rat}\}$ with $K = 3$ classes
 * Logistic regression handles binary response, i.e. $p(X)$ or $1 - p(X)$, but we happy to apply it to $K$ classes in **one-versus-all** (OVA or one-vs-rest) fashion:<br>
 $p_k(X): = \mathbb{P} [Y = k | X]$<br>
@@ -323,6 +325,7 @@ $\log \frac{p_k(X)}{p_{\neg k}(X)}: = \beta_{k0} + \beta_{k1}X = [1 X] \bf{\beta
 * **Multinomial logistic regression** (a.k.a. softmax regression) with **multilogit** function:
   * It uses a generalized logistic function, called **softmax**:  $p_k(\bf{X}) := \frac{e^{\bf{X}^\prime \beta_k}}{\sum\limits_j e^{\bf{X}^\prime \beta_j}}$
     * So, if $p_{\mathrm{cat}}(\bf{X}) = 0.2$, $p_{\mathrm{dog}}(\bf{X}) = 0.3$, then: $p_{\mathrm{rat}}(\bf{X}) = 1 - p_{\mathrm{cat}}(\bf{X}) - p_{\mathrm{dog}}(\bf{X}) = 0.5$
+</v-clicks>
 
 ---
 
@@ -333,11 +336,9 @@ $\log \frac{p_k(X)}{p_{\neg k}(X)}: = \beta_{k0} + \beta_{k1}X = [1 X] \bf{\beta
   * Advantage: if you start with equal number of observations in each class (say, $n_k = 10$), then each logistic regression deals with **balanced classes**
     * In **one-versus-all**, we will have $10$ observations in class $k$ and $20$ observations in the rest
 
-<br>
-
 <center>
 <figure>
-  <img src="/one_vs_all.png" style="width: 350px !important">
+  <img src="/one_vs_all.png" style="width: 390px !important">
   <figcaption style="color:#b3b3b3ff; font-size: 9px; position: relative; left:0px;">Image source: <a href="https://sites.cc.gatech.edu/classes/AY2016/cs4476_fall/results/proj4/html/jnanda3/index.html">https://sites.cc.gatech.edu/classes/AY2016/cs4476_fall/results/proj4/html/jnanda3/index.html</a>
   </figcaption>
 </figure>
@@ -346,6 +347,7 @@ $\log \frac{p_k(X)}{p_{\neg k}(X)}: = \beta_{k0} + \beta_{k1}X = [1 X] \bf{\beta
 ---
 
 # Fitting Logistic Regression for 2 Classes
+<v-clicks depth="3">
 
 * We assume i.i.d. $X_i \sim \mathrm{Binomial} \big(\theta_{2 \times 1} := (n, p)\big)$
   * For $K > 2$, we assume i.i.d. $X_i \sim \mathrm{Multinomial} \big(\theta_1, ..., \theta_{K-1}$
@@ -355,3 +357,4 @@ $$\ell (\theta) = \log \mathrm{Bin}(\bf{X} | \theta) = \log \prod \mathrm{Bin} (
 $$\ell(\beta) = \sum\limits_{i=1}^N \bigg\{ y_i \log p (x_i; \beta_ + (1 - y_i) \log \big(1 - p (x_i; \beta)\big) \bigg\} = \sum\limits_{i=1}^N \bigg\{ y_i \beta^T x_i - \log (1 + e^{\beta^T x_i}) \bigg\}$$
   * Take derivative, set it to zero to find critical values (min, max, saddle), second derivatives to identify local max. Then determine global max
   * See [ESL textbook](https://hastie.su.domains/ElemStatLearn/), p. 120-122
+</v-clicks>
