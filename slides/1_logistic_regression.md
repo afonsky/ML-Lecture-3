@@ -200,7 +200,7 @@ Decision for a non-student at 0.5 = not likely to default
   * Goal: classify iris species based on petal and sepal widths and lengths
 * 3 classes (species), but let's use just two
   * 50 observations per class
-* 4 features, but let's just use sepal with
+* 4 features, but let's just use **sepal width**
   * How well does this feature separate classes?
   * Consider sepal width of $x_0 \in \{4, 5, 5.5\}$
 
@@ -350,7 +350,7 @@ $\log \frac{p_k(X)}{p_{\neg k}(X)}: = \beta_{k0} + \beta_{k1}X = [1 X] \bf{\beta
 <v-clicks depth="3">
 
 * We assume i.i.d. $X_i \sim \mathrm{Binomial} \big(\theta_{2 \times 1} := (n, p)\big)$
-  * For $K > 2$, we assume i.i.d. $X_i \sim \mathrm{Multinomial} \big(\theta_1, ..., \theta_{K-1}$
+  * For $K > 2$, we assume i.i.d. $X_i \sim \mathrm{Multinomial} \big(\theta_1, ..., \theta_{K-1}\big)$
 * Then maximize log likelihood estimator (MLE) of $\theta$:
 $$\ell (\theta) = \log \mathrm{Bin}(\bf{X} | \theta) = \log \prod \mathrm{Bin} (X_i | \theta) = \sum \log \mathrm{Bin} (X_i | \theta)$$
 * In terms of $\beta := [\beta_0, \beta_1]$, we have:
