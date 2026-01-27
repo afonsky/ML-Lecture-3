@@ -15,6 +15,10 @@ const timelineSource = `
 @ [2026-01-27~2026-02-04T18:00] #red {🤖STACK+Maxima Tutorial} 🤖STACK+Maxima Tutorial
 * [2026-02-03T23:59] #yellow {🤖STACK+Maxima Tutorial} Soft deadline
 * [2026-02-04T18:00] #red {🤖STACK+Maxima Tutorial} Hard deadline
+
+@ [2026-01-27~2026-02-04T18:00] #blue {🤖OLS Estimator} 🤖OLS Estimator
+* [2026-02-03T23:59] #yellow {🤖OLS Estimator} Soft deadline
+* [2026-02-04T18:00] #red {🤖OLS Estimator} Hard deadline
 `
 </script>
 
@@ -22,7 +26,7 @@ const timelineSource = `
     
 ---
 
-# Map of Estimators (models) in Sklearn
+# Map of Estimators (Models) in Sklearn
 <style>
 .slidev-layout {
   font-size: 1.1em
